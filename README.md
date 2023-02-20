@@ -1,6 +1,50 @@
 # Restoration of Analog Videos Using Swin-UNet
 
-This is the official repository of "Restoration of Analog Videos Using Swin-UNet"
+## Table of Contents
+
+
+* [About the Project](#about-the-project)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+  * [Data Preparation](#data-preparation)
+* [Authors](#authors)
+* [Citation](#citation)
+
+## About The Project
+This is the **official repository** of "[**Restoration of Analog Videos Using Swin-UNet**](https://dl.acm.org/doi/10.1145/3503161.3547730)" **[Demo ACM MM 2022]**
+
+
+
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+We strongly recommend the use of the [**Anaconda**](https://www.anaconda.com/) package manager in order to avoid dependency/reproducibility problems.
+A conda installation guide for Linux systems can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
+
+### Installation
+ 
+1. Clone the repo
+```sh
+git clone 
+```
+2. Install Python dependencies
+```sh
+
+```
+3.
+
+## Usage
+
+
+### Data Preparation
+
 
 ## Authors
 * [**Lorenzo Agnolucci**](https://scholar.google.com/citations?user=hsCt4ZAAAAAJ&hl=en)
