@@ -5,7 +5,7 @@ from einops import rearrange
 import numpy as np
 import torch.utils.checkpoint as checkpoint
 
-from utils_models import window_partition, window_reverse, trunc_normal_, get_window_size
+from utils import window_partition, window_reverse, trunc_normal_, get_window_size
 
 
 def drop_path(x, drop_prob: float = 0., training: bool = False, scale_by_keep: bool = True):

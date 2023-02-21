@@ -17,7 +17,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 
 def main(args):
 
-    checkpoints_path = Path("../pretrained_models") / args.experiment_name
+    checkpoints_path = Path("pretrained_models") / args.experiment_name
     checkpoint_file = os.listdir(checkpoints_path)[-1]
     checkpoint = checkpoints_path / checkpoint_file
 
@@ -35,7 +35,7 @@ def main(args):
                                          patch_size=args.patch_size,
                                          crop_mode="center")
 
-    model = VideoSwinEncoderDecoder(use_checkpoint=args.use_checkpoint, depths=[2, 2, 6, 2], embed_dim=96)
+    model = VideoSwinEncoderDecoder(use_checkpoint=True, depths=[2, 2, 6, 2], embed_dim=96)
     state_dict = torch.load(checkpoint)["state_dict"]
     state_dict = dict([(k[len("net_g."):], v) for k, v in state_dict.items() if k.startswith("net_g.")])
     model.load_state_dict(state_dict)
@@ -69,7 +69,8 @@ def main(args):
 
         for i in range(output.shape[0]):
 
-            video_clip = osp.dirname(img_name[i])
+            video_clip = img_name[i].split("/")[0]
+            print("Video clip: ", video_clip)
             (results_path / Path(video_clip)).mkdir(parents=True, exist_ok=True)
 
             restored = (output[i] * 255).astype(np.uint8)
@@ -86,11 +87,11 @@ def main(args):
                 combined_video_writer.release()
                 last_clip = video_clip
                 restored_video_writer = cv2.VideoWriter(f"{restored_video_path}/{video_clip}.mp4",
-                                                        cv2.VideoWriter_fourcc(*'mp4v'), 25,
+                                                        cv2.VideoWriter_fourcc(*'mp4v'), args.fps,
                                                         restored.shape[0:2])
                 combined_shape = (restored.shape[0] * 2, restored.shape[1])
                 combined_video_writer = cv2.VideoWriter(f"{combined_video_path}/{video_clip}.mp4",
-                                                        cv2.VideoWriter_fourcc(*'mp4v'), 25,
+                                                        cv2.VideoWriter_fourcc(*'mp4v'), args.fps,
                                                         combined_shape)
 
             restored_video_writer.write(restored)
@@ -108,7 +109,7 @@ if __name__ == '__main__':
     parser.add_argument("--data-base-path", type=str)
     parser.add_argument("--results-path", type=str, default="results")
     parser.add_argument("--patch-size", type=int, default=768)
-    parser.add_argument("--no-checkpoint", default=True, action="store_false")
+    parser.add_argument("--fps", type=int, default=60)
     args = parser.parse_args()
 
     main(args)
