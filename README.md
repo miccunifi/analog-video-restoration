@@ -1,26 +1,22 @@
 # Restoration of Analog Videos Using Swin-UNet
 
 ## Table of Contents
-
-
 * [About the Project](#about-the-project)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
- * [Training](#training)
- * [Test](#test) 
+  * [Training](#training)
+  * [Test](#test) 
 * [Authors](#authors)
 * [Citation](#citation)
 
 ## About The Project
 ![restoration example](readme.png)
 
-
 This is the **official repository** of "[**Restoration of Analog Videos Using Swin-UNet**](https://dl.acm.org/doi/10.1145/3503161.3547730)" **[Demo ACM MM 2022]**.
 
 In this work, we present an approach to restore analog videos of historical archives. These videos often contain severe visual degradation due to the deterioration of their tape supports that require costly and slow manual interventions to recover the original content. The proposed method uses a multi-frame approach and is able to deal also with severe tape mistracking, which results in completely scrambled frames. Tests on real-world videos from a major historical video archive show the effectiveness of our approach.
-
 
 ## Getting Started
 
@@ -29,7 +25,7 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 We strongly recommend the use of the [**Anaconda**](https://www.anaconda.com/) package manager in order to avoid dependency/reproducibility problems.
-A conda installation guide for Linux systems can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
+A conda installation guide for Linux systems can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
 
 ### Installation
  
@@ -48,11 +44,74 @@ pip install -r requirements.txt
 
 ### Training
 
+1. Make your training dataset have the following structure:
+```
+<dataset-name>
+     └─── train
+           └─── input
+                └─── 000
+                      | 00000.jpg
+                      | 00001.jpg
+                      | ...
+
+                └───  001
+                      | 00000.jpg
+                      | 00001.jpg
+                      | ...
+                ...
+
+           └─── gt
+                └─── 000
+                      | 00000.jpg
+                      | 00001.jpg
+                      | 00002.jpg
+                      | ...
+
+                └───  001
+                      | 00000.jpg
+                      | 00001.jpg
+                      | ...
+                ...
+
+           └─── val
+              └─── input
+                └─── 000
+                      | 00000.jpg
+                      | 00001.jpg
+                      | ...
+
+                └───  001
+                      | 00000.jpg
+                      | 00001.jpg
+                      | ...
+                ...
+
+              └─── gt
+                   └─── 000
+                         | 00000.jpg
+                         | 00001.jpg
+                         | 00002.jpg
+                         | ...
+
+                   └───  001
+                         | 00000.jpg
+                         | 00001.jpg
+                         | ...
+                   ...
+```
+
+2. Get your [Comet](https://www.comet.com/site/) api key for online logging of the losses and metrics
+
+3. Run the training code with
+```
+python src/train.py --experiment-name video_swin_unet --data-base-path <path-to-dataset> --devices 0 --api-key <your-Comet-api-key> --batch-size 2 --num-epochs 100 --num-workers 20 --pixel-loss-weight 200 --perceptual-loss-weight 1
+```
+
 ### Test
 
-1. If needed, download the pretrained model from [Google Drive](https://drive.google.com/drive/folders/1omIk6qHKqbvO7T09Ixiez7zq08S7OaxE?usp=share_link) and copy it inside the folder ```pretrained_models/video_swin_unet```
+1. If needed, download the pretrained model from [Google Drive](https://drive.google.com/drive/folders/1omIk6qHKqbvO7T09Ixiez7zq08S7OaxE?usp=share_link) and copy it inside the folder ```pretrained_models/video_swin_unet/```
 
-2. Extract the frames of the video in jpg images and save them in a folder
+2. Extract the frames of the video in .jpg images and save them in a folder
 ```
 mkdir <folder-name>
 ffmpeg -i <video-file-name> -qscale:v 2 <folder-name>/%00d.jpg
