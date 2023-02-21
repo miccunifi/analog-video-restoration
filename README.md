@@ -12,7 +12,7 @@
 * [Citation](#citation)
 
 ## About The Project
-**TODO: Inserire immagine con frame degradati e restaurati**
+![restoration example](readme.png)
 
 
 This is the **official repository** of "[**Restoration of Analog Videos Using Swin-UNet**](https://dl.acm.org/doi/10.1145/3503161.3547730)" **[Demo ACM MM 2022]**.
