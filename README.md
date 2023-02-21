@@ -37,7 +37,7 @@ A conda installation guide for Linux systems can be found [here](https://docs.co
 ```sh
 git clone https://github.com/miccunifi/analog-video-restoration.git
 ```
-2. Install Python dependencies **TODO: Copiare requirements.txt**
+2. Install Python dependencies
 ```sh
 conda create -n analog_video_restoration -y python=3.9
 conda activate analog_video_restoration
@@ -60,7 +60,7 @@ ffmpeg -i <video-file-name> -qscale:v 2 <folder-name>/%00d.jpg
 
 3. Run inference on the folder with
 ```
-python src/real_world_test.py --experiment-name video_swin_unet --data-base-path <path-to-folder> --results-path results --patch-size 512
+python src/real_world_test.py --experiment-name video_swin_unet --data-base-path <path-to-folder> --results-path results --patch-size 512 --fps 60
 ```
 
 ## Authors
