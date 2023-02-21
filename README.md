@@ -8,15 +8,16 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-  * [Data Preparation](#data-preparation)
 * [Authors](#authors)
 * [Citation](#citation)
 
 ## About The Project
-This is the **official repository** of "[**Restoration of Analog Videos Using Swin-UNet**](https://dl.acm.org/doi/10.1145/3503161.3547730)" **[Demo ACM MM 2022]**
+**TODO: Inserire immagine con frame degradati e restaurati**
 
 
+This is the **official repository** of "[**Restoration of Analog Videos Using Swin-UNet**](https://dl.acm.org/doi/10.1145/3503161.3547730)" **[Demo ACM MM 2022]**.
 
+In this work, we present a system to restore analog videos of historical archives. These videos often contain severe visual degradation due to the deterioration of their tape supports that require costly and slow manual interventions to recover the original content. The proposed system uses a multi-frame approach and is able to deal also with severe tape mistracking, which results in completely scrambled frames. Tests on real-world videos from a major historical video archive show the effectiveness of our demo system.
 
 
 ## Getting Started
@@ -32,9 +33,9 @@ A conda installation guide for Linux systems can be found [here](https://docs.co
  
 1. Clone the repo
 ```sh
-git clone 
+git clone https://github.com/miccunifi/analog-video-restoration.git
 ```
-2. Install Python dependencies
+2. Install Python dependencies **TODO: Copiare requirements.txt**
 ```sh
 
 ```
@@ -42,8 +43,11 @@ git clone
 
 ## Usage
 
+1. Extract the frames of the video in jpg images and save them in a folder **TODO: Inserire comando ffmpeg**
 
-### Data Preparation
+2. **TODO: Upload modello su Drive**
+
+3. **TODO: Modificare codice per fare inferenza su un solo video**
 
 
 ## Authors
