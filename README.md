@@ -1,5 +1,9 @@
 # Restoration of Analog Videos Using Swin-UNet
 
+This application is part of the **ReInHerit Toolkit**.
+
+![ReInHerit Smart Video Restoration logo](smartvideorestoration_logo.jpg "ReInHerit Smart Video Restoration logo")
+
 ## Table of Contents
 * [About the Project](#about-the-project)
 * [Getting Started](#getting-started)
