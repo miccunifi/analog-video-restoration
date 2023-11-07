@@ -1,5 +1,8 @@
 # Restoration of Analog Videos Using Swin-UNet
 
+> [!NOTE]  
+> If you are interested in analog video restoration take a look at our follow-up work [**"Reference-based Restoration of Digitized Analog Videotapes"**](https://arxiv.org/abs/2310.14926) accepted at WACV 2024.
+
 This application is part of the **ReInHerit Toolkit**.
 
 ![ReInHerit Smart Video Restoration logo](smartvideorestoration_logo.jpg "ReInHerit Smart Video Restoration logo")
@@ -45,6 +48,9 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
+### Synthetic Dataset
+See the [**repo**](https://github.com/miccunifi/TAPE) of our [**follow-up work**](https://arxiv.org/abs/2310.14926) to download the synthetic dataset.
 
 ### Training
 
