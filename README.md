@@ -1,5 +1,8 @@
 # Restoration of Analog Videos Using Swin-UNet
 
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2311.04261)
+[![GitHub Stars](https://img.shields.io/github/stars/miccunifi/analog-video-restoration?style=social)](https://github.com/miccunifi/analog-video-restoration)
+
 > [!NOTE]  
 > If you are interested in analog video restoration take a look at our follow-up work [**"Reference-based Restoration of Digitized Analog Videotapes"**](https://arxiv.org/abs/2310.14926) accepted at WACV 2024.
 
